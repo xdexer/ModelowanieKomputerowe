@@ -4,25 +4,15 @@ class Grid():
     def __init__(self, n):
         self.n = n
         self.array = self.init_random_tab()
+        self.p = 0.1
+        self.save_stats = open("results.txt" + str(self.p), 'w+')
+
 
     def init_tab(self):
-        # grid = np.array([])
-        # for row in range(self.n):
-        #     grid.append([])
-        #     for column in range(self.n):
-        #         grid[row].append(False)  # Append a cell
-        grid = np.zeros(self.n*self.n).reshape(self.n, self.n)
-        return grid
+        return np.zeros(self.n*self.n).reshape(self.n, self.n)
 
     def init_random_tab(self):
-        #grid = np.array([])
-        grid = np.random.choice(a=[0, 1], size=(self.n, self.n)).reshape(self.n,self.n)
-        # for row in range(self.n):
-        #     grid.append([])
-        #     for column in range(self.n):
-        #         x = random.randint(0, 1000)
-        #         grid[row].append(False if x % 2 == 0 else True)  # Append a cell
-        return grid
+        return np.random.choice(a=[0, 1], size=(self.n, self.n), p=[1 - self.p, self.p]).reshape(self.n,self.n)
 
     def shuffle(self):
         self.array = self.init_random_tab()
@@ -58,9 +48,12 @@ class Grid():
             self.array[im][jp] + self.array[ip][jm])
         return total
 
+    def count_stats(self):
+        pass
+
     def update(self):
         newGrid = self.array.copy()
-        print(self.array)
+        #print(self.array)
         for i in range(self.n):
             for j in range(self.n):
                 neighbours = self.neighbours_count(i,j)
