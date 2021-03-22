@@ -19,26 +19,38 @@ class GameOfLife():
         self.start_game_of_life = False 
 
     def run(self):
-        while not self.handle_events():
-            #apply game_of_life
-            if self.start_game_of_life:
-                self.grid.update()
-            # Draw the grid
-            for row in range(self.n):
-                for column in range(self.n):
-                    color = GameOfLife.DEAD
-                    if self.grid.array[row][column] == 1:
-                        color = GameOfLife.ALIVE
-                    if self.grid.array[row][column] == 0:
+        x = 1
+        while(x < 3):
+            #self.grid.init_file(x)
+            
+            while not self.handle_events() and (self.grid.iteration < 1000):
+                #apply game_of_life
+                if self.start_game_of_life:
+                    self.grid.update()
+                #Draw the grid
+                for row in range(self.n):
+                    for column in range(self.n):
                         color = GameOfLife.DEAD
-                    pygame.draw.rect(self.screen, color,
-                             [(GameOfLife.MARGIN + GameOfLife.WIDTH) * column + GameOfLife.MARGIN,
-                              (GameOfLife.MARGIN + GameOfLife.HEIGHT) * row + GameOfLife.MARGIN,
-                              GameOfLife.WIDTH,
-                              GameOfLife.HEIGHT])
+                        if self.grid.array[row][column] == 1:
+                            color = GameOfLife.ALIVE
+                        if self.grid.array[row][column] == 0:
+                            color = GameOfLife.DEAD
+                        pygame.draw.rect(self.screen, color,
+                                [(GameOfLife.MARGIN + GameOfLife.WIDTH) * column + GameOfLife.MARGIN,
+                                (GameOfLife.MARGIN + GameOfLife.HEIGHT) * row + GameOfLife.MARGIN,
+                                GameOfLife.WIDTH,
+                                GameOfLife.HEIGHT])
  
-            self.fps_clock.tick(60)
-            pygame.display.flip()
+                self.fps_clock.tick(60)
+                pygame.display.flip()
+            #self.grid.close_stats()
+
+            self.grid.iteration = 0
+            self.grid.live_cells = 0
+            self.grid.dead_cells = 0
+            self.grid.array = self.grid.init_random_tab()
+            x += 1
+
         pygame.quit()
 
     def handle_events(self):
