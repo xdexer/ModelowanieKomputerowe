@@ -1,5 +1,0 @@
-10 : Average standard error:  0.1301393394691323
-25 : Average standard error:  0.9036157727416425
-50 : Average standard error:  2.966243815196396
-100 : Average standard error:  10.909377940991583
-200 : Average standard error:  42.169185526293106

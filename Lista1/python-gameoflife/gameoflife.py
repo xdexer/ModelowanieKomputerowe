@@ -20,7 +20,7 @@ class GameOfLife():
 
     def run(self):
         x = 1
-        while(x < 3):
+        while(x < 2):
             #self.grid.init_file(x)
             
             while not self.handle_events() and (self.grid.iteration < 1000):
