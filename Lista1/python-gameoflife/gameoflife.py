@@ -41,7 +41,7 @@ class GameOfLife():
                                 GameOfLife.WIDTH,
                                 GameOfLife.HEIGHT])
  
-                self.fps_clock.tick(60)
+                self.fps_clock.tick(120)
                 pygame.display.flip()
             #self.grid.close_stats()
 

@@ -7,7 +7,6 @@ import re
 file_list = glob.glob("./*.txt")
 print(file_list)
 
-stddevtab = []
 std_errors = []
 
 for num, file_path in enumerate(file_list):
