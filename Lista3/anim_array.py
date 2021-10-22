@@ -20,7 +20,7 @@ class AnimArray():
         self.screen = pygame.display.set_mode([width, height])
         pygame.display.set_caption("Model Visualization")
 
-        self.current_model = DlaModel(n)
+        self.current_model = EdenModel(n)
         self.start_model = False 
         self.step_model = False
 

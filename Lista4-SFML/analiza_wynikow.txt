@@ -1,0 +1,1 @@
+Porównując się do modelu SIR uzyskałem dość podobne wyniki. W zależności od stosunku parametrów p1,p2 "fala" komórek zarażonych różniła się; przy dużym stosunku p1 > p2, fala była spiczasta i gwałtowna, w przeciwnym przypadku była praktycznie płaska. Parametr p2 wpływał na opóźnienie się momentu gwałtownego przebiegu zarażania się.    
